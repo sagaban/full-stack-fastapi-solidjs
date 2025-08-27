@@ -1,0 +1,39 @@
+{
+  "name": "solid-frontend",
+  "version": "1.0.0",
+  "description": "Solid frontend for FastAPI",
+  "main": "index.js",
+  "keywords": [
+    "solid",
+    "frontend",
+    "fastapi",
+    "spa",
+    "rest-client"
+  ],
+  "author": "Santiago",
+  "license": "ISC",
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --port 3000",
+    "start": "node .output/server/index.mjs",
+    "build": "vite build",
+    "serve": "vite preview",
+    "test": "vitest run",
+    "format": "biome format",
+    "lint": "biome lint",
+    "check": "biome check"
+  },
+  "dependencies": {
+    "@tanstack/solid-router": "^1.131.28",
+    "@tanstack/solid-router-devtools": "^1.131.28",
+    "@tanstack/solid-start": "^1.131.28",
+    "solid-js": "^1.9.9",
+    "vite": "^7.1.3",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.2.2",
+    "typescript": "^5.9.2",
+    "vite-plugin-solid": "^2.11.8"
+  }
+}
