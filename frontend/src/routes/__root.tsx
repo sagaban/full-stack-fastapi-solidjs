@@ -1,5 +1,6 @@
 import { createRootRouteWithContext, Outlet } from "@tanstack/solid-router";
 import { TanStackRouterDevtools } from "@tanstack/solid-router-devtools";
+import "../index.css";
 // import TanStackQueryProvider from "../integrations/tanstack-query/provider.tsx";
 
 export const Route = createRootRouteWithContext()({

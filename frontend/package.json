@@ -24,6 +24,7 @@
     "check": "biome check"
   },
   "dependencies": {
+    "@ark-ui/solid": "^5.21.0",
     "@tanstack/solid-router": "^1.131.28",
     "@tanstack/solid-router-devtools": "^1.131.28",
     "@tanstack/solid-start": "^1.131.28",
