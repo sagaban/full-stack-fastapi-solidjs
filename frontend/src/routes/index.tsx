@@ -1,25 +1,18 @@
-import { Slider } from "@ark-ui/solid/slider";
 import { createFileRoute } from "@tanstack/solid-router";
+import { Button } from "~/components/ui/button";
 
 export const Route = createFileRoute("/")({
 	component: IndexComponent,
 });
 
+const handleClick = () => {
+	console.log("clicked");
+};
+
 function IndexComponent() {
 	return (<div>
 		<h1>Hello World</h1>
-		<Slider.Root>
-			<Slider.Label>Label</Slider.Label>
-			<Slider.ValueText />
-			<Slider.Control>
-				<Slider.Track>
-					<Slider.Range />
-				</Slider.Track>
-				<Slider.Thumb index={0}>
-					<Slider.HiddenInput />
-				</Slider.Thumb>
-			</Slider.Control>
-		</Slider.Root>
+		<Button onClick={handleClick}>Click me</Button>
 	</div>
 	)
 }

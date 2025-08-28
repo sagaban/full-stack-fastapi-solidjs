@@ -5,3 +5,7 @@ node_modules/
 /playwright/.cache/
 .env
 /data/
+
+## Panda
+styled-system
+styled-system-studio

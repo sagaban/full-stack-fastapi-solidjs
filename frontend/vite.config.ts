@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [
     // this is the plugin that enables path aliases
     viteTsConfigPaths({
+      root: "./",
       projects: ["./tsconfig.json"],
     }),
     tanstackStart({ customViteSolidPlugin: true }),
