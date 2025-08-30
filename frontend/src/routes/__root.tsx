@@ -1,10 +1,12 @@
 import { createRootRouteWithContext, Outlet } from '@tanstack/solid-router';
 import { TanStackRouterDevtools } from '@tanstack/solid-router-devtools';
+import { ThemeProvider } from 'contexts/ThemeContext';
 import '../index.css';
 // import TanStackQueryProvider from "../integrations/tanstack-query/provider.tsx";
 
 export const Route = createRootRouteWithContext()({
   head: () => ({
+    lang: 'en',
     meta: [
       {
         charset: 'utf-8',
@@ -23,12 +25,12 @@ export const Route = createRootRouteWithContext()({
 
 function RootComponent() {
   return (
-    <div>
+    <ThemeProvider>
       {/* <TanStackQueryProvider> */}
 
       <Outlet />
       <TanStackRouterDevtools />
       {/* </TanStackQueryProvider> */}
-    </div>
+    </ThemeProvider>
   );
 }

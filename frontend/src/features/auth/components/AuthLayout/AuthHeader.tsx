@@ -1,6 +1,7 @@
 import { Link } from '@tanstack/solid-router';
 import { Box } from 'styled-system/jsx';
 import { Button } from 'ui/button';
+import { ThemeToggle } from '../../../../components/ThemeToggle/ThemeToggle';
 
 export const AuthHeader = () => {
   return (
@@ -17,10 +18,14 @@ export const AuthHeader = () => {
       borderBottom='1px solid'
       borderBottomColor='border.default'
       bg='bg.default'
+      display='flex'
+      alignItems='center'
+      justifyContent='space-between'
     >
       <Button as={Link} href='/'>
         Go back to home
       </Button>
+      <ThemeToggle />
     </Box>
   );
 };

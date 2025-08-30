@@ -25,7 +25,8 @@
 			// "~/*": ["./src/*"],
 			"components/*": ["./src/components/*"],
 			"ui/*": ["./src/components/ui/*"],
-			"features/*": ["./src/features/*"]
+			"features/*": ["./src/features/*"],
+			"contexts/*": ["./src/contexts/*"]
 		}
 	},
 	"include": ["src", "styled-system"]

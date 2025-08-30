@@ -2,6 +2,7 @@ import { Link } from '@tanstack/solid-router';
 import { Box } from 'styled-system/jsx';
 import { Button } from 'ui/button';
 import { Text } from 'ui/text';
+import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 
 export const IndexHeader = () => {
   return (
@@ -23,11 +24,12 @@ export const IndexHeader = () => {
       bg='bg.default'
     >
       <Text size='lg'>Solid + FastAPI</Text>
-      <Box ml='auto'>
+      <Box ml='auto' display='flex' alignItems='center' gap='2'>
+        <ThemeToggle />
         <Button as={Link} href='/auth/login'>
           Login
         </Button>
-        <Button ml='2' as={Link} href='/auth/signup'>
+        <Button as={Link} href='/auth/signup'>
           Signup
         </Button>
       </Box>
