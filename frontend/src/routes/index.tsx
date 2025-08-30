@@ -1,18 +1,6 @@
-import { createFileRoute } from "@tanstack/solid-router";
-import { Button } from "~/components/ui/button";
+import { createFileRoute } from '@tanstack/solid-router';
+import { IndexPage } from 'components/IndexPage/IndexPage';
 
-export const Route = createFileRoute("/")({
-	component: IndexComponent,
+export const Route = createFileRoute('/')({
+  component: IndexPage,
 });
-
-const handleClick = () => {
-	console.log("clicked");
-};
-
-function IndexComponent() {
-	return (<div>
-		<h1>Hello World</h1>
-		<Button onClick={handleClick}>Click me</Button>
-	</div>
-	)
-}

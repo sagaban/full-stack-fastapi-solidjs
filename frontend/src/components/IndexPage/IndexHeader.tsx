@@ -1,0 +1,36 @@
+import { Link } from '@tanstack/solid-router';
+import { Box } from 'styled-system/jsx';
+import { Button } from 'ui/button';
+import { Text } from 'ui/text';
+
+export const IndexHeader = () => {
+  return (
+    <Box
+      h='3.5rem'
+      w='100%'
+      px='4'
+      py='1'
+      display='flex'
+      alignItems='center'
+      justifyContent='space-between'
+      position='fixed'
+      top='0'
+      left='0'
+      right='0'
+      zIndex='100'
+      borderBottom='1px solid'
+      borderBottomColor='border.default'
+      bg='bg.default'
+    >
+      <Text size='lg'>Solid + FastAPI</Text>
+      <Box ml='auto'>
+        <Button as={Link} href='/auth/login'>
+          Login
+        </Button>
+        <Button ml='2' as={Link} href='/auth/signup'>
+          Signup
+        </Button>
+      </Box>
+    </Box>
+  );
+};

@@ -1,8 +1,8 @@
-import { createContext, type JSX, useContext } from "solid-js";
-import { Dynamic } from "solid-js/web";
-import { cx } from "styled-system/css";
-import { isCssProperty, styled } from "styled-system/jsx";
-import type { ElementType, StyledComponent } from "styled-system/types";
+import { createContext, type JSX, useContext } from 'solid-js';
+import { Dynamic } from 'solid-js/web';
+import { cx } from 'styled-system/css';
+import { isCssProperty, styled } from 'styled-system/jsx';
+import type { ElementType, StyledComponent } from 'styled-system/types';
 
 type Props = Record<string, unknown>;
 type Recipe = {
