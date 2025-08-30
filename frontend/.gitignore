@@ -2,8 +2,11 @@
 node_modules
 
 ## Tanstack
-.tanstack/tmp
+.tanstack
 
 ## Panda
 styled-system
 styled-system-studio
+
+.nitro
+.output

@@ -2,11 +2,16 @@ import { createRouter as createTanstackRouter } from '@tanstack/solid-router';
 
 // Import the generated route tree
 import { routeTree } from './routeTree.gen';
+import { NotFound } from 'components/NotFound/NotFound';
+import { DefaultError } from 'components/DefaultError/DefaultError';
 
 export const createRouter = () => {
   const router = createTanstackRouter({
     routeTree,
     scrollRestoration: true,
+    defaultNotFoundComponent: () => <NotFound />,
+    defaultErrorComponent: () => <DefaultError />,
+    
   });
   return router;
 };

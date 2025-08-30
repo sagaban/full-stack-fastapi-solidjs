@@ -3,6 +3,7 @@ import { createPreset } from '@park-ui/panda-preset'
 import amber from '@park-ui/panda-preset/colors/amber'
 import sand from '@park-ui/panda-preset/colors/sand'
 
+const preset = createPreset({ accentColor: amber, grayColor: sand, radius: 'sm' })
 export default defineConfig({
   presets: [createPreset({ accentColor: amber, grayColor: sand, radius: 'sm' })],
 
@@ -70,9 +71,9 @@ export default defineConfig({
   outdir: "styled-system",
   globalCss: {
     body: {
-      bg: 'gray.2',
+      ...preset?.globalCss?.body,
+      "background": "gray.2",
       pt: '3.5rem',
-      color: "textPrimary"
     }
   }
 });
