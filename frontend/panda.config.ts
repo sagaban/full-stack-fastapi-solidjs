@@ -21,59 +21,33 @@ export default defineConfig({
     extend: {
       tokens: {
         colors: {
-
-
-        },
-        fonts: {
-          body: { value: 'system-ui, sans-serif' },
-        }
-      },
-      semanticTokens: {
-        colors: {
-          //     fg: {
-          //       "default": {
-          //         "value": {
-          //           "_light": "{colors.gray.12}",
-          //           "_dark": "{colors.gray.12}"
-          //         }
-          //       },
-          //       "muted": {
-          //         "value": {
-          //           "_light": "{colors.gray.11}",
-          //           "_dark": "{colors.gray.11}"
-          //         }
-          //       },
-          //       "subtle": {
-          //         "value": {
-          //           "_light": "{colors.gray.10}",
-          //           "_dark": "{colors.gray.10}"
-          //         }
-          //       },
-          //       "disabled": {
-          //         "value": {
-          //           "_light": "{colors.gray.9}",
-          //           "_dark": "{colors.gray.9}"
-          //         }
-          //       },
-          //       "error": {
-          //         "value": {
-          //           "_light": "{colors.red.9}",
-          //           "_dark": "{colors.red.9}"
-          //         }
-          //       }
-          //     },
+          "html-background": {
+            dark: {
+              value: '#0e0d0c' // almost black
+            },
+          }
         }
       }
     },
+    semanticTokens: {
+      colors: {
+        "html-background": {
+          light: { 1: { value: '{colors.gray.3}' }, 2: { value: '{colors.gray.2}' } },
+          dark: { 1: { value: '{colors.gray.1}' }, 2: { value: '{colors.html-background.dark}' } }
+        }
+      }
+    }
   },
+
 
   // The output directory for your css system
   outdir: "styled-system",
   globalCss: {
     body: {
       ...preset?.globalCss?.body,
-      "background": "gray.2",
       pt: '3.5rem',
-    }
+      background: 'unset' // use the html background
+    },
+
   }
 });

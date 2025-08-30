@@ -28,9 +28,8 @@ export function ThemeProvider(props: { children: JSXElement }) {
     setThemeSignal(newTheme);
     if (typeof window !== 'undefined') {
       localStorage.setItem('theme', newTheme);
-      // Update data-theme attribute on html element for Panda CSS
-      // document.documentElement.setAttribute('data-theme', newTheme);
-      document.documentElement.setAttribute('style', `color-scheme: ${newTheme}`);
+      // Update data-theme attribute on html element for Park UI
+      document.documentElement.setAttribute('class', newTheme);
     }
   };
 
@@ -40,8 +39,7 @@ export function ThemeProvider(props: { children: JSXElement }) {
 
   // Initialize theme on mount
   if (typeof window !== 'undefined') {
-    // document.documentElement.setAttribute('data-theme', theme());
-    document.documentElement.setAttribute('style', `color-scheme: ${theme()}`);
+    document.documentElement.setAttribute('class', theme());
   }
 
   const value: ThemeContextType = {
@@ -51,7 +49,7 @@ export function ThemeProvider(props: { children: JSXElement }) {
   };
 
   return (
-    <ThemeContext.Provider value={value}>
+    <ThemeContext.Provider value={value}> 
       {props.children}
     </ThemeContext.Provider>
   );
