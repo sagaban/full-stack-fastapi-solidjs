@@ -1,6 +1,6 @@
+import { useTheme } from 'contexts/ThemeContext';
 import { Show } from 'solid-js';
 import { Button } from 'ui/button';
-import { useTheme } from 'contexts/ThemeContext';
 
 export function ThemeToggle() {
   const { theme, toggleTheme } = useTheme();

@@ -1,4 +1,4 @@
-import { createContext, createSignal, useContext, type JSXElement } from 'solid-js';
+import { createContext, createSignal, type JSXElement, useContext } from 'solid-js';
 
 type Theme = 'light' | 'dark';
 
@@ -39,6 +39,7 @@ export function ThemeProvider(props: { children: JSXElement }) {
 
   // Initialize theme on mount
   if (typeof window !== 'undefined') {
+    // eslint-disable-next-line solid/reactivity
     document.documentElement.setAttribute('class', theme());
   }
 
@@ -48,11 +49,7 @@ export function ThemeProvider(props: { children: JSXElement }) {
     setTheme,
   };
 
-  return (
-    <ThemeContext.Provider value={value}> 
-      {props.children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={value}>{props.children}</ThemeContext.Provider>;
 }
 
 export function useTheme() {

@@ -1,5 +1,6 @@
 import { mergeProps, splitProps } from 'solid-js';
 import { styled } from 'styled-system/jsx';
+
 import {
   Spinner as StyledSpinner,
   type SpinnerProps as StyledSpinnerProps,
@@ -19,11 +20,7 @@ export const Spinner = (props: SpinnerProps) => {
   const localProps = mergeProps({ label: 'Loading...' }, _localProps);
 
   return (
-    <StyledSpinner
-      borderBottomColor='transparent'
-      borderLeftColor='transparent'
-      {...rootProps}
-    >
+    <StyledSpinner borderBottomColor="transparent" borderLeftColor="transparent" {...rootProps}>
       <styled.span srOnly>{localProps.label}</styled.span>
     </StyledSpinner>
   );

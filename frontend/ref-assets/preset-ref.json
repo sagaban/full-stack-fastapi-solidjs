@@ -1,17 +1,12 @@
 {
   "name": "@park-ui/panda-preset",
-  "presets": [
-    "@pandacss/preset-base"
-  ],
+  "presets": ["@pandacss/preset-base"],
   "conditions": {
     "extend": {
       "collapsed": "&:is([aria-collapsed=true], [data-collapsed], [data-state=\"collapsed\"])",
       "current": "&:is([data-current])",
       "hidden": "&:is([hidden])",
-      "hover": [
-        "@media (hover: hover) and (pointer: fine)",
-        "&:is(:hover, [data-hover])"
-      ],
+      "hover": ["@media (hover: hover) and (pointer: fine)", "&:is(:hover, [data-hover])"],
       "indeterminate": "&:is(:indeterminate, [data-indeterminate], [aria-checked=mixed], [data-state=indeterminate])",
       "off": "&:is([data-state=\"off\"])",
       "on": "&:is([data-state=\"on\"])",
@@ -246,11 +241,7 @@
         },
         "button": {
           "className": "button",
-          "jsx": [
-            "Button",
-            "IconButton",
-            "SubmitButton"
-          ],
+          "jsx": ["Button", "IconButton", "SubmitButton"],
           "base": {
             "alignItems": "center",
             "appearance": "none",
@@ -557,10 +548,7 @@
         },
         "input": {
           "className": "input",
-          "jsx": [
-            "Input",
-            "Field.Input"
-          ],
+          "jsx": ["Input", "Field.Input"],
           "base": {
             "appearance": "none",
             "background": "none",
@@ -755,10 +743,7 @@
         },
         "textarea": {
           "className": "textarea",
-          "jsx": [
-            "Textarea",
-            "Field.Textarea"
-          ],
+          "jsx": ["Textarea", "Field.Textarea"],
           "base": {
             "appearance": "none",
             "background": "none",
@@ -813,10 +798,7 @@
         },
         "text": {
           "className": "text",
-          "jsx": [
-            "Heading",
-            "Text"
-          ],
+          "jsx": ["Heading", "Text"],
           "variants": {
             "variant": {
               "heading": {
@@ -880,13 +862,7 @@
       "slotRecipes": {
         "accordion": {
           "className": "accordion",
-          "slots": [
-            "root",
-            "item",
-            "itemTrigger",
-            "itemContent",
-            "itemIndicator"
-          ],
+          "slots": ["root", "item", "itemTrigger", "itemContent", "itemIndicator"],
           "base": {
             "root": {
               "divideY": "1px",
@@ -956,13 +932,7 @@
         },
         "alert": {
           "className": "alert",
-          "slots": [
-            "root",
-            "content",
-            "description",
-            "icon",
-            "title"
-          ],
+          "slots": ["root", "content", "description", "icon", "title"],
           "base": {
             "root": {
               "background": "bg.default",
@@ -997,11 +967,7 @@
         },
         "avatar": {
           "className": "avatar",
-          "slots": [
-            "root",
-            "image",
-            "fallback"
-          ],
+          "slots": ["root", "image", "fallback"],
           "base": {
             "root": {
               "borderRadius": "full",
@@ -1138,14 +1104,7 @@
         },
         "card": {
           "className": "card",
-          "slots": [
-            "root",
-            "header",
-            "body",
-            "footer",
-            "title",
-            "description"
-          ],
+          "slots": ["root", "header", "body", "footer", "title", "description"],
           "base": {
             "root": {
               "bg": "bg.default",
@@ -1272,13 +1231,7 @@
         },
         "checkbox": {
           "className": "checkbox",
-          "slots": [
-            "root",
-            "label",
-            "control",
-            "indicator",
-            "group"
-          ],
+          "slots": ["root", "label", "control", "indicator", "group"],
           "base": {
             "root": {
               "alignItems": "center",
@@ -1387,14 +1340,7 @@
         },
         "clipboard": {
           "className": "clipboard",
-          "slots": [
-            "root",
-            "control",
-            "trigger",
-            "indicator",
-            "input",
-            "label"
-          ],
+          "slots": ["root", "control", "trigger", "indicator", "input", "label"],
           "base": {
             "root": {
               "display": "flex",
@@ -1409,11 +1355,7 @@
         },
         "collapsible": {
           "className": "collapsible",
-          "slots": [
-            "root",
-            "trigger",
-            "content"
-          ],
+          "slots": ["root", "trigger", "content"],
           "base": {
             "root": {
               "alignItems": "flex-start",
@@ -2072,15 +2014,7 @@
         },
         "field": {
           "className": "field",
-          "slots": [
-            "root",
-            "errorText",
-            "helperText",
-            "input",
-            "label",
-            "select",
-            "textarea"
-          ],
+          "slots": ["root", "errorText", "helperText", "input", "label", "select", "textarea"],
           "base": {
             "root": {
               "display": "flex",
@@ -2116,13 +2050,7 @@
         },
         "fieldset": {
           "className": "fieldset",
-          "slots": [
-            "root",
-            "errorText",
-            "helperText",
-            "legend",
-            "control"
-          ],
+          "slots": ["root", "errorText", "helperText", "legend", "control"],
           "base": {
             "root": {
               "display": "grid",
@@ -2261,13 +2189,7 @@
         },
         "hoverCard": {
           "className": "hoverCard",
-          "slots": [
-            "arrow",
-            "arrowTip",
-            "trigger",
-            "positioner",
-            "content"
-          ],
+          "slots": ["arrow", "arrowTip", "trigger", "positioner", "content"],
           "base": {
             "content": {
               "--hover-card-background": "colors.bg.default",
@@ -2730,13 +2652,7 @@
         },
         "pagination": {
           "className": "pagination",
-          "slots": [
-            "root",
-            "item",
-            "ellipsis",
-            "prevTrigger",
-            "nextTrigger"
-          ],
+          "slots": ["root", "item", "ellipsis", "prevTrigger", "nextTrigger"],
           "base": {
             "root": {
               "display": "flex",
@@ -2756,12 +2672,7 @@
         },
         "pinInput": {
           "className": "pinInput",
-          "slots": [
-            "root",
-            "label",
-            "input",
-            "control"
-          ],
+          "slots": ["root", "label", "input", "control"],
           "base": {
             "root": {
               "display": "flex",
@@ -2982,14 +2893,7 @@
         },
         "radioButtonGroup": {
           "className": "radioButtonGroup",
-          "slots": [
-            "root",
-            "label",
-            "item",
-            "itemText",
-            "itemControl",
-            "indicator"
-          ],
+          "slots": ["root", "label", "item", "itemText", "itemControl", "indicator"],
           "base": {
             "root": {
               "display": "flex",
@@ -3145,14 +3049,7 @@
         },
         "radioGroup": {
           "className": "radioGroup",
-          "slots": [
-            "root",
-            "label",
-            "item",
-            "itemText",
-            "itemControl",
-            "indicator"
-          ],
+          "slots": ["root", "label", "item", "itemText", "itemControl", "indicator"],
           "base": {
             "root": {
               "display": "flex",
@@ -3282,12 +3179,7 @@
         },
         "ratingGroup": {
           "className": "ratingGroup",
-          "slots": [
-            "root",
-            "label",
-            "item",
-            "control"
-          ],
+          "slots": ["root", "label", "item", "control"],
           "base": {
             "root": {
               "display": "flex",
@@ -3367,14 +3259,7 @@
         },
         "segmentGroup": {
           "className": "segmentGroup",
-          "slots": [
-            "root",
-            "label",
-            "item",
-            "itemText",
-            "itemControl",
-            "indicator"
-          ],
+          "slots": ["root", "label", "item", "itemText", "itemControl", "indicator"],
           "base": {
             "root": {
               "alignItems": "flex-start",
@@ -3717,15 +3602,7 @@
         },
         "signaturePad": {
           "className": "signaturePad",
-          "slots": [
-            "root",
-            "control",
-            "segment",
-            "segmentPath",
-            "guide",
-            "clearTrigger",
-            "label"
-          ],
+          "slots": ["root", "control", "segment", "segmentPath", "guide", "clearTrigger", "label"],
           "base": {}
         },
         "slider": {
@@ -3888,11 +3765,7 @@
         },
         "splitter": {
           "className": "splitter",
-          "slots": [
-            "root",
-            "panel",
-            "resizeTrigger"
-          ],
+          "slots": ["root", "panel", "resizeTrigger"],
           "base": {
             "root": {
               "display": "flex",
@@ -3933,16 +3806,8 @@
         },
         "switchRecipe": {
           "className": "switchRecipe",
-          "jsx": [
-            "Switch",
-            {}
-          ],
-          "slots": [
-            "root",
-            "label",
-            "control",
-            "thumb"
-          ],
+          "jsx": ["Switch", {}],
+          "slots": ["root", "label", "control", "thumb"],
           "base": {
             "root": {
               "alignItems": "center",
@@ -4041,16 +3906,7 @@
         },
         "table": {
           "className": "table",
-          "slots": [
-            "root",
-            "body",
-            "cell",
-            "footer",
-            "head",
-            "header",
-            "row",
-            "caption"
-          ],
+          "slots": ["root", "body", "cell", "footer", "head", "header", "row", "caption"],
           "base": {
             "root": {
               "captionSide": "bottom",
@@ -4150,13 +4006,7 @@
         },
         "tabs": {
           "className": "tabs",
-          "slots": [
-            "root",
-            "list",
-            "trigger",
-            "content",
-            "indicator"
-          ],
+          "slots": ["root", "list", "trigger", "content", "indicator"],
           "base": {
             "root": {
               "display": "flex",
@@ -4597,14 +4447,7 @@
         },
         "toast": {
           "className": "toast",
-          "slots": [
-            "group",
-            "root",
-            "title",
-            "description",
-            "actionTrigger",
-            "closeTrigger"
-          ],
+          "slots": ["group", "root", "title", "description", "actionTrigger", "closeTrigger"],
           "base": {
             "root": {
               "background": "bg.default",
@@ -4645,10 +4488,7 @@
         },
         "toggleGroup": {
           "className": "toggleGroup",
-          "slots": [
-            "root",
-            "item"
-          ],
+          "slots": ["root", "item"],
           "base": {
             "root": {
               "display": "flex",
@@ -4779,13 +4619,7 @@
         },
         "tooltip": {
           "className": "tooltip",
-          "slots": [
-            "trigger",
-            "arrow",
-            "arrowTip",
-            "positioner",
-            "content"
-          ],
+          "slots": ["trigger", "arrow", "arrowTip", "positioner", "content"],
           "base": {
             "content": {
               "background": "gray.a12",
@@ -4939,12 +4773,7 @@
         },
         "qrCode": {
           "className": "qrCode",
-          "slots": [
-            "root",
-            "frame",
-            "pattern",
-            "overlay"
-          ],
+          "slots": ["root", "frame", "pattern", "overlay"],
           "base": {}
         }
       },
@@ -5687,14 +5516,7 @@
             ]
           },
           "serif": {
-            "value": [
-              "ui-serif",
-              "Georgia",
-              "Cambria",
-              "\"Times New Roman\"",
-              "Times",
-              "serif"
-            ]
+            "value": ["ui-serif", "Georgia", "Cambria", "\"Times New Roman\"", "Times", "serif"]
           },
           "mono": {
             "value": [

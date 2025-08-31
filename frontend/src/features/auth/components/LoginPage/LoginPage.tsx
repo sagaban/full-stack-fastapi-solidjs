@@ -1,12 +1,16 @@
 import { createForm } from '@tanstack/solid-form';
+import { useNavigate } from '@tanstack/solid-router';
 import { Button } from 'components/ui/button';
-import { Heading } from 'components/ui/heading';
 import { Field } from 'components/ui/field';
-import { Box, styled } from 'styled-system/jsx';
-import { z } from 'zod';
+import { Heading } from 'components/ui/heading';
+import { useAuth } from 'contexts/AuthContext';
 import { Show } from 'solid-js';
+import { Box, styled } from 'styled-system/jsx';
+import * as yup from 'yup';
 
 export const LoginPage = () => {
+  const auth = useAuth();
+  const navigate = useNavigate();
   const form = createForm(() => ({
     defaultValues: {
       username: '',
@@ -15,6 +19,8 @@ export const LoginPage = () => {
     onSubmit: ({ value }) => {
       // Do something with form data
       console.log(value);
+      auth.login(value.username);
+      navigate({ to: '/' });
     },
   }));
   return (
@@ -34,7 +40,7 @@ export const LoginPage = () => {
         <form.Field
           name="username"
           validators={{
-            onChange: z.string().min(1, 'Username is required'),
+            onChangeAsync: yup.string().required('Username is required'),
           }}
           children={(field) => (
             <Field.Root mb="2">
@@ -57,7 +63,7 @@ export const LoginPage = () => {
         <form.Field
           name="password"
           validators={{
-            onChange: z.string().min(1, 'Password is required'),
+            onChangeAsync: yup.string().required('Password is required'),
           }}
           children={(field) => (
             <Field.Root mb="4">
