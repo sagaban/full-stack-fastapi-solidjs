@@ -1,8 +1,9 @@
-import { tanstackStart } from '@tanstack/solid-start/plugin/vite';
 import { defineConfig } from 'vite';
 import eslint from 'vite-plugin-eslint';
 import viteSolid from 'vite-plugin-solid';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
+import { tanstackRouter } from '@tanstack/router-plugin/vite'
+
 
 export default defineConfig({
   plugins: [
@@ -11,14 +12,14 @@ export default defineConfig({
       root: './',
       projects: ['./tsconfig.json'],
     }),
-    tanstackStart({
-      customViteSolidPlugin: true,
-      spa: {
-        prerender: { enabled: false },
-        enabled: true,
-      },
+    tanstackRouter({
+      target: 'solid',
+      autoCodeSplitting: true,
     }),
-    viteSolid({ ssr: true }),
+    viteSolid({ ssr: false }),
     eslint(),
   ],
+  build: {
+    target: 'esnext',
+  },
 });

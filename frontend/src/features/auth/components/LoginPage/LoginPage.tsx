@@ -20,7 +20,7 @@ export const LoginPage = () => {
       // Do something with form data
       console.log(value);
       auth.login(value.username);
-      navigate({ to: '/' });
+      navigate({ to: '/app' });
     },
   }));
   return (

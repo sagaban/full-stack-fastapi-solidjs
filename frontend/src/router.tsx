@@ -5,22 +5,21 @@ import { NotFound } from 'components/NotFound/NotFound';
 // Import the generated route tree
 import { routeTree } from './routeTree.gen';
 
-export const createRouter = () => {
+const createRouter = () => {
   const router = createTanstackRouter({
     routeTree,
     scrollRestoration: true,
     defaultNotFoundComponent: () => <NotFound />,
     defaultErrorComponent: () => <DefaultError />,
     defaultSsr: false,
-    // context: {
-    //   auth: undefined,
-    // },
+    context: {
+      auth: undefined,
+    },
   });
   return router;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const router = createRouter();
+export const router = createRouter();
 
 // Register the router instance for type safety
 declare module '@tanstack/solid-router' {

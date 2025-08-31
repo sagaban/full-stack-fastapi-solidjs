@@ -1,19 +1,13 @@
-import '../index.css';
-
 import { createRootRouteWithContext, Outlet } from '@tanstack/solid-router';
 import { TanStackRouterDevtools } from '@tanstack/solid-router-devtools';
-import { AuthProvider } from 'contexts/AuthContext';
-import { ThemeProvider } from 'contexts/ThemeContext';
-// import type { AuthState } from 'types/auth';
-// import TanStackQueryProvider from "../integrations/tanstack-query/provider.tsx";
+import type { AuthState } from 'types/auth';
 
-// interface MyRouterContext {
-//   // The ReturnType of your useAuth hook or the value of your AuthContext
-//   auth: AuthState | undefined;
-// }
+interface MyRouterContext {
+  // The ReturnType of your useAuth hook or the value of your AuthContext
+  auth: AuthState | undefined;
+}
 
-// export const Route = createRootRouteWithContext<MyRouterContext>()({
-export const Route = createRootRouteWithContext()({
+export const Route = createRootRouteWithContext<MyRouterContext>()({
   head: () => ({
     lang: 'en',
     meta: [
@@ -34,14 +28,12 @@ export const Route = createRootRouteWithContext()({
 
 function RootComponent() {
   return (
-    <AuthProvider>
-      <ThemeProvider>
-        {/* <TanStackQueryProvider> */}
+    <>
+      {/* <TanStackQueryProvider> */}
 
-        <Outlet />
-        <TanStackRouterDevtools />
-        {/* </TanStackQueryProvider> */}
-      </ThemeProvider>
-    </AuthProvider>
+      <Outlet />
+      <TanStackRouterDevtools />
+      {/* </TanStackQueryProvider> */}
+    </>
   );
 }
