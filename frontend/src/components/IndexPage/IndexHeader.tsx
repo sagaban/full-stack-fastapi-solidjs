@@ -1,4 +1,6 @@
 import { Link } from '@tanstack/solid-router';
+import { useAuth } from 'contexts/AuthContext';
+import { Show } from 'solid-js';
 import { Box } from 'styled-system/jsx';
 import { Button } from 'ui/button';
 import { Text } from 'ui/text';
@@ -6,6 +8,12 @@ import { Text } from 'ui/text';
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 
 export const IndexHeader = () => {
+  const auth = useAuth();
+  // const navigate = useNavigate();
+  const handleLogout = () => {
+    auth.logout();
+    // navigate({ to: '/auth/login' });
+  };
   return (
     <Box
       h="3.5rem"
@@ -26,13 +34,20 @@ export const IndexHeader = () => {
     >
       <Text size="lg">Solid + FastAPI</Text>
       <Box ml="auto" display="flex" alignItems="center" gap="2">
-        <ThemeToggle />
-        <Button as={Link} href="/auth/login">
-          Login
-        </Button>
-        <Button as={Link} href="/auth/signup">
-          Signup
-        </Button>
+        <Show when={auth.user}>
+          <Text size="lg">{auth.user}</Text>
+          <ThemeToggle />
+          <Button onClick={handleLogout}>Logout</Button>
+        </Show>
+        <Show when={!auth.user}>
+          <ThemeToggle />
+          <Button as={Link} href="/auth/login">
+            Login
+          </Button>
+          <Button as={Link} href="/auth/signup">
+            Signup
+          </Button>
+        </Show>
       </Box>
     </Box>
   );

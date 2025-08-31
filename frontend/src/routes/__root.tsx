@@ -2,6 +2,7 @@ import '../index.css';
 
 import { createRootRouteWithContext, Outlet } from '@tanstack/solid-router';
 import { TanStackRouterDevtools } from '@tanstack/solid-router-devtools';
+import { AuthProvider } from 'contexts/AuthContext';
 import { ThemeProvider } from 'contexts/ThemeContext';
 // import type { AuthState } from 'types/auth';
 // import TanStackQueryProvider from "../integrations/tanstack-query/provider.tsx";
@@ -33,12 +34,14 @@ export const Route = createRootRouteWithContext()({
 
 function RootComponent() {
   return (
-    <ThemeProvider>
-      {/* <TanStackQueryProvider> */}
+    <AuthProvider>
+      <ThemeProvider>
+        {/* <TanStackQueryProvider> */}
 
-      <Outlet />
-      <TanStackRouterDevtools />
-      {/* </TanStackQueryProvider> */}
-    </ThemeProvider>
+        <Outlet />
+        <TanStackRouterDevtools />
+        {/* </TanStackQueryProvider> */}
+      </ThemeProvider>
+    </AuthProvider>
   );
 }

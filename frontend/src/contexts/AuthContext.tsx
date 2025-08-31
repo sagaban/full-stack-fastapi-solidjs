@@ -1,11 +1,4 @@
-import {
-  createContext,
-  createDeferred,
-  createEffect,
-  createSignal,
-  type JSXElement,
-  useContext,
-} from 'solid-js';
+import { createContext, createEffect, createSignal, type JSXElement, useContext } from 'solid-js';
 
 export interface AuthContext {
   isAuthenticated: boolean;
@@ -32,7 +25,6 @@ function setStoredUser(user: string | null) {
 
 export const AuthProvider = (props: { children: JSXElement }) => {
   const [user, setUser] = createSignal<string | null>(getStoredUser());
-  const isAuthenticated = createDeferred(() => !!user());
 
   const logout = async () => {
     setStoredUser(null);
@@ -48,20 +40,19 @@ export const AuthProvider = (props: { children: JSXElement }) => {
 
   createEffect(() => {
     setStoredUser(user());
-    // return () => {
-    //   setStoredUser(null);
-    //   setUser(null);
-    // };
   });
 
   return (
     <AuthContext.Provider
       value={{
-        isAuthenticated: isAuthenticated(),
+        get isAuthenticated() {
+          return !!user();
+        },
         login,
         logout,
-        // eslint-disable-next-line solid/reactivity
-        user: user(),
+        get user() {
+          return user();
+        },
       }}
     >
       {props.children}
@@ -72,7 +63,9 @@ export const AuthProvider = (props: { children: JSXElement }) => {
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
+    const error = new Error('useAuth must be used within an AuthProvider');
+    console.log(error);
+    throw error;
   }
   return context;
 };
