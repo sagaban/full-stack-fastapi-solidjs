@@ -10,7 +10,13 @@ export default defineConfig({
       root: "./",
       projects: ["./tsconfig.json"],
     }),
-    tanstackStart({ customViteSolidPlugin: true }),
+    tanstackStart({
+      customViteSolidPlugin: true,
+      spa: {
+        prerender: { enabled: false },
+        enabled: true,
+      },
+    }),
     viteSolid({ ssr: true }),
   ],
 });

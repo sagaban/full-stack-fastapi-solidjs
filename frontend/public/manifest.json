@@ -1,6 +1,6 @@
 {
-  "short_name": "TanStack App",
-  "name": "Create TanStack App Sample",
+  "short_name": "Full Stack FastAPI + SolidJS",
+  "name": "Full Stack FastAPI + SolidJS",
   "icons": [
     {
       "src": "favicon.ico",

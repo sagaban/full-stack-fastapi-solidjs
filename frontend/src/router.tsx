@@ -11,7 +11,7 @@ export const createRouter = () => {
     scrollRestoration: true,
     defaultNotFoundComponent: () => <NotFound />,
     defaultErrorComponent: () => <DefaultError />,
-    
+    defaultSsr: false
   });
   return router;
 };
