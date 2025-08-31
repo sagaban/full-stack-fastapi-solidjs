@@ -11,11 +11,12 @@ export const createRouter = () => {
     scrollRestoration: true,
     defaultNotFoundComponent: () => <NotFound />,
     defaultErrorComponent: () => <DefaultError />,
-    defaultSsr: false
+    defaultSsr: false,
   });
   return router;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const router = createRouter();
 
 // Register the router instance for type safety

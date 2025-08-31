@@ -8,12 +8,8 @@ const preferFunctionalComponents = true;
 
 const solidjsTailwindBestPractices = [
 "Use createSignal() for reactive state",
-"Implement Tailwind CSS classes for styling",
+"Implement Panda CSS for styling",
 "Utilize TypeScript's strict mode",
-"Utilize @apply directive in CSS files for reusable styles",
-"Implement responsive design using Tailwind's responsive classes",
-"Use Tailwind's CSS in /src/styles.css for global styles",
-"Implement dark mode using Tailwind's dark variant",
 ];
 
 // Additional instructions
@@ -32,4 +28,6 @@ const additionalInstructions = `
 10. Implement utility-first CSS approach
 11. Follow both Solid.js and Tailwind naming conventions
 12. Use JIT (Just-In-Time) mode for faster development
+13. Frontend project is in `frontend` folder
+14. Python FastAPI backend project is in `backend` folder
     `;
