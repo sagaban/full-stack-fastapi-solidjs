@@ -27,8 +27,11 @@
       "ui/*": ["./src/components/ui/*"],
       "features/*": ["./src/features/*"],
       "contexts/*": ["./src/contexts/*"],
-      "types/*": ["./src/types/*"]
+      "types/*": ["./src/types/*"],
+      "utils/*": ["./src/utils/*"]
     }
   },
-  "include": ["src", "styled-system"]
+  "include": ["src", "styled-system"],
+  "noUncheckedIndexedAccess": true
+
 }

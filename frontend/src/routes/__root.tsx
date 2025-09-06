@@ -1,10 +1,9 @@
 import { createRootRouteWithContext, Outlet } from '@tanstack/solid-router';
 import { TanStackRouterDevtools } from '@tanstack/solid-router-devtools';
-import type { AuthState } from 'types/auth';
-
+import type { AuthContext } from 'contexts/AuthContext';
 interface MyRouterContext {
   // The ReturnType of your useAuth hook or the value of your AuthContext
-  auth: AuthState | undefined;
+  auth: AuthContext | undefined;
 }
 
 export const Route = createRootRouteWithContext<MyRouterContext>()({

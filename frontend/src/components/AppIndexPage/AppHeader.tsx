@@ -33,7 +33,7 @@ export const AppHeader = () => {
     >
       <Text size="lg">Solid + FastAPI</Text>
       <Box ml="auto" display="flex" alignItems="center" gap="2">
-        <Text size="lg">{auth.user}</Text>
+        <Text size="lg">{auth.user?.full_name ?? auth.user?.email}</Text>
         <ThemeToggle />
         <Button onClick={handleLogout}>Logout</Button>
       </Box>

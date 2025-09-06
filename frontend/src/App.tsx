@@ -1,4 +1,5 @@
 import { RouterProvider } from '@tanstack/solid-router';
+import { AppToaster } from 'components/AppToaster/AppToaster';
 
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 import { ThemeProvider } from './contexts/ThemeContext';
@@ -14,6 +15,7 @@ export default function App() {
     <AuthProvider>
       <ThemeProvider>
         <InnerApp />
+        <AppToaster />
       </ThemeProvider>
     </AuthProvider>
   );
