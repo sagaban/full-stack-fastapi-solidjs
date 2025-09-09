@@ -1,4 +1,5 @@
-import { createFileRoute, redirect } from '@tanstack/solid-router';
+import { createFileRoute, Outlet, redirect } from '@tanstack/solid-router';
+import { AuthLayout } from 'components/AppLayout/AppLayout';
 
 export const Route = createFileRoute('/app')({
   beforeLoad: ({ context, location }) => {
@@ -11,4 +12,13 @@ export const Route = createFileRoute('/app')({
       });
     }
   },
+  component: RouteComponent,
 });
+
+function RouteComponent() {
+  return (
+    <AuthLayout>
+      <Outlet />
+    </AuthLayout>
+  );
+}
