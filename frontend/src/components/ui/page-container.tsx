@@ -5,9 +5,10 @@ import { styled } from 'styled-system/jsx';
 import type { CssProperties, LiteralUnion } from 'styled-system/types';
 
 const styles = css({
-  bg: 'bg.default',
+  bg: 'bg.default/20',
   p: '12px 16px',
   m: '0 auto',
+  backdropFilter: 'blur(15px)',
 });
 
 export const PageContainer = (props: {

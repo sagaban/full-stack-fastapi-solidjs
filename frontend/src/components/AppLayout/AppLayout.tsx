@@ -9,17 +9,21 @@ export const AuthLayout = (props: { children: JSXElement }) => {
   const [isDrawerOpen, setIsDrawerOpen] = createSignal(false);
   return (
     <Box display="flex" width="100%">
-      <AppHeader isDrawerOpen={isDrawerOpen()} />
-      <AppDrawer isDrawerOpen={isDrawerOpen()} setIsDrawerOpen={setIsDrawerOpen} />
+      <AppHeader isDrawerOpen={isDrawerOpen()} setIsDrawerOpen={setIsDrawerOpen} />
+      <AppDrawer isDrawerOpen={isDrawerOpen()} />
 
       <Box
-        width={
-          isDrawerOpen()
-            ? `calc(100% - ${APP_DRAWER_WIDTH_OPEN})`
-            : `calc(100% - ${APP_DRAWER_WIDTH_CLOSED})`
-        }
+        width="var(--layout-width)"
         flexGrow={1}
         p="4"
+        right="0"
+        position="absolute"
+        transition="all 0.3s ease-in-out"
+        style={{
+          '--layout-width': isDrawerOpen()
+            ? `calc(100% - ${APP_DRAWER_WIDTH_OPEN})`
+            : `calc(100% - ${APP_DRAWER_WIDTH_CLOSED})`,
+        }}
       >
         {props.children}
       </Box>

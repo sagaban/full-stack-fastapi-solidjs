@@ -1,5 +1,8 @@
 import { useNavigate } from '@tanstack/solid-router';
+import { IconButton } from 'components/ui/icon-button';
 import { useAuth } from 'contexts/AuthContext';
+import { PanelLeftCloseIcon, PanelLeftOpenIcon } from 'lucide-solid';
+import { type Setter, Show } from 'solid-js';
 import { Box } from 'styled-system/jsx';
 import { Button } from 'ui/button';
 import { Text } from 'ui/text';
@@ -7,7 +10,7 @@ import { Text } from 'ui/text';
 import { ThemeToggle } from '../ThemeToggle/ThemeToggle';
 import { APP_DRAWER_WIDTH_CLOSED, APP_DRAWER_WIDTH_OPEN } from './constants';
 
-export const AppHeader = (props: { isDrawerOpen: boolean }) => {
+export const AppHeader = (props: { isDrawerOpen: boolean; setIsDrawerOpen: Setter<boolean> }) => {
   const auth = useAuth();
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -46,7 +49,11 @@ export const AppHeader = (props: { isDrawerOpen: boolean }) => {
         '--header-left': left(),
       }}
     >
-      <Text size="lg">Solid + FastAPI</Text>
+      <IconButton onClick={() => props.setIsDrawerOpen((prev) => !prev)} variant="outline">
+        <Show when={props.isDrawerOpen} fallback={<PanelLeftOpenIcon />}>
+          <PanelLeftCloseIcon />
+        </Show>
+      </IconButton>
       <Box ml="auto" display="flex" alignItems="center" gap="2">
         <Text size="lg">{auth.user?.full_name ?? auth.user?.email}</Text>
         <ThemeToggle />
