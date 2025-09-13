@@ -21,6 +21,7 @@ export default defineConfig([
     'vite.config.ts',
     'styled-system',
     'panda.config.ts',
+    'src/services/api/types.ts',
   ]),
   {
     files: ['**/*.{js,mjs,cjs,ts,mts,cts}'],

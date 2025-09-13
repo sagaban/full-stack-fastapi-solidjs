@@ -1,4 +1,4 @@
-import { Toast } from "components/ui/toast";
+import { Toast } from 'components/ui/toast';
 
 export const errorToaster = Toast.createToaster({
   placement: 'top-end',
@@ -7,7 +7,7 @@ export const errorToaster = Toast.createToaster({
 });
 
 export const useToast = () => {
-  const errorToast = ({ title, description }: { title: string, description?: string }) => {
+  const errorToast = ({ title, description }: { title: string; description?: string }) => {
     errorToaster.create({
       title,
       description,

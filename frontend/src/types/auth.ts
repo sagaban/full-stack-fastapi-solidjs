@@ -1,9 +1,8 @@
-import type { components } from "src/services/api/types";
+import type { components } from 'src/services/api/types';
 
-export type AuthUser = components["schemas"]["UserPublic"];
+export type AuthUser = components['schemas']['UserPublic'];
 
 export type AuthState = {
-
   user: null | string;
   // isLoading: boolean;
   isAuthenticated: boolean;

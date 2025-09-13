@@ -1,4 +1,4 @@
-import { apiService } from "src/services/api/api";
+import { apiService } from 'src/services/api/api';
 
 // import type { LoginResponse } from "../types";
 
@@ -21,4 +21,3 @@ export const getLoggedInUser = async () => {
   const response = await apiService.GET('/api/v1/users/me');
   return response.data;
 };
-

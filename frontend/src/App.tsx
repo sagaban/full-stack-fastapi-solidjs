@@ -1,3 +1,5 @@
+import { QueryClient, QueryClientProvider } from '@tanstack/solid-query';
+import { SolidQueryDevtools } from '@tanstack/solid-query-devtools';
 import { RouterProvider } from '@tanstack/solid-router';
 import { AppToaster } from 'components/AppToaster/AppToaster';
 
@@ -11,11 +13,15 @@ function InnerApp() {
 }
 
 export default function App() {
+  const queryClient = new QueryClient();
   return (
     <AuthProvider>
       <ThemeProvider>
-        <InnerApp />
-        <AppToaster />
+        <QueryClientProvider client={queryClient}>
+          <SolidQueryDevtools initialIsOpen={false} />
+          <InnerApp />
+          <AppToaster />
+        </QueryClientProvider>
       </ThemeProvider>
     </AuthProvider>
   );

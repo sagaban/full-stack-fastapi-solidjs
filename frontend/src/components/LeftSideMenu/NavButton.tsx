@@ -1,5 +1,5 @@
 import { Link, useLocation } from '@tanstack/solid-router';
-import { DefaultTooltip } from 'components/DefaultTooltip/DefaultTooltip';
+import { MyTooltip } from 'components/MyTooltip/MyTooltip';
 import { IconButton } from 'components/ui/icon-button';
 import { Text } from 'components/ui/text';
 import { type JSX, Show } from 'solid-js';
@@ -17,7 +17,7 @@ export const NavButton = (props: {
   return (
     <Link to={props.to}>
       <Flex gap="2" alignItems="center" w="100%" cursor="pointer">
-        <DefaultTooltip
+        <MyTooltip
           content={props.title}
           openDelay={0}
           closeDelay={0}
@@ -29,7 +29,7 @@ export const NavButton = (props: {
           <IconButton size="sm" variant={isActive() ? 'solid' : 'subtle'}>
             {props.icon}
           </IconButton>
-        </DefaultTooltip>
+        </MyTooltip>
         <Show when={props.isDrawerOpen}>
           <Text size="sm" overflow="hidden" whiteSpace="nowrap">
             {props.title}

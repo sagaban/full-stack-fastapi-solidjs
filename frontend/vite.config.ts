@@ -2,8 +2,7 @@ import { defineConfig } from 'vite';
 import eslint from 'vite-plugin-eslint';
 import viteSolid from 'vite-plugin-solid';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
-import { tanstackRouter } from '@tanstack/router-plugin/vite'
-
+import { tanstackRouter } from '@tanstack/router-plugin/vite';
 
 export default defineConfig({
   plugins: [

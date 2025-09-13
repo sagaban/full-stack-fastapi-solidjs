@@ -32,8 +32,11 @@
   "dependencies": {
     "@ark-ui/solid": "^5.21.0",
     "@tanstack/solid-form": "^1.19.3",
+    "@tanstack/solid-query": "^5.87.4",
+    "@tanstack/solid-query-devtools": "^5.87.4",
     "@tanstack/solid-router": "^1.131.28",
     "@tanstack/solid-router-devtools": "^1.131.28",
+    "@tanstack/solid-table": "^8.21.3",
     "lucide-solid": "^0.542.0",
     "openapi-fetch": "^0.14.0",
     "solid-js": "^1.9.9",

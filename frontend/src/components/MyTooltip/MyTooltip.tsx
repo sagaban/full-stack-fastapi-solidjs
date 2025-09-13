@@ -1,7 +1,7 @@
 import { Tooltip } from 'components/ui/tooltip';
 import { type JSX } from 'solid-js';
 
-export const DefaultTooltip = (
+export const MyTooltip = (
   props: { children: JSX.Element; content: string } & Tooltip.RootProps,
 ) => (
   <Tooltip.Root {...props}>
