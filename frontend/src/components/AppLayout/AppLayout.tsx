@@ -1,12 +1,13 @@
-import { createSignal, type JSXElement } from 'solid-js';
+import { type JSXElement } from 'solid-js';
 import { Box } from 'styled-system/jsx';
+import { createStoredSignal } from 'utils/signalStorage';
 
 import { AppDrawer } from './AppDrawer';
 import { AppHeader } from './AppHeader';
 import { APP_DRAWER_WIDTH_CLOSED, APP_DRAWER_WIDTH_OPEN } from './constants';
 
 export const AuthLayout = (props: { children: JSXElement }) => {
-  const [isDrawerOpen, setIsDrawerOpen] = createSignal(false);
+  const [isDrawerOpen, setIsDrawerOpen] = createStoredSignal('isDrawerOpen', false);
   return (
     <Box display="flex" width="100%">
       <AppHeader isDrawerOpen={isDrawerOpen()} setIsDrawerOpen={setIsDrawerOpen} />
