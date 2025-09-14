@@ -37,6 +37,7 @@
     "@tanstack/solid-router": "^1.131.28",
     "@tanstack/solid-router-devtools": "^1.131.28",
     "@tanstack/solid-table": "^8.21.3",
+    "es-toolkit": "^1.39.10",
     "lucide-solid": "^0.542.0",
     "openapi-fetch": "^0.14.0",
     "solid-js": "^1.9.9",
