@@ -1,6 +1,7 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/solid-query';
 import { Link } from '@tanstack/solid-router';
 import type { ColumnDef } from '@tanstack/solid-table';
+import { MyAlert } from 'components/MyAlert/MyAlert';
 import { MyTable } from 'components/MyTable/MyTable';
 import { Button } from 'components/ui/button';
 import { Heading } from 'components/ui/heading';
@@ -8,7 +9,7 @@ import { IconButton } from 'components/ui/icon-button';
 import { PageContainer } from 'components/ui/page-container';
 import { Spinner } from 'components/ui/spinner';
 import { CheckIcon, TrashIcon } from 'lucide-solid';
-import { Match, Show, Switch } from 'solid-js';
+import { createMemo, Match, Show, Switch } from 'solid-js';
 import { useConfirmDialog } from 'src/hooks/useConfirmDialog';
 import { useToast } from 'src/hooks/useToast';
 import { apiService } from 'src/services/api/api';
@@ -26,6 +27,10 @@ export const UsersPage = () => {
   const { confirmDialog } = useConfirmDialog();
   const { errorToast, successToast } = useToast();
   const queryClient = useQueryClient();
+
+  const leftOneSuperuser = createMemo(() => {
+    return query.data?.data.filter((user) => user.is_superuser).length === 1;
+  });
 
   const deleteUser = useMutation(() => ({
     mutationFn: async (userId: string) => {
@@ -65,6 +70,13 @@ export const UsersPage = () => {
       header: 'Email',
       accessorKey: 'email',
       size: 300,
+      cell: (info) => {
+        return (
+          <Link to={`/app/users/$userId`} params={{ userId: info.row.original.id }}>
+            {info.getValue() as string}
+          </Link>
+        );
+      },
     },
     {
       header: 'Name',
@@ -105,8 +117,9 @@ export const UsersPage = () => {
       size: 50,
     },
     {
-      header: '_',
+      header: 'Delete',
       cell: (info) => {
+        const deleteDisabled = leftOneSuperuser() && info.row.original.is_superuser;
         return (
           <IconButton
             variant="ghost"
@@ -119,7 +132,8 @@ export const UsersPage = () => {
                 },
               });
             }}
-            color="red.10"
+            color={deleteDisabled ? 'red.5' : 'red.9'}
+            disabled={deleteDisabled}
           >
             <TrashIcon />
           </IconButton>
@@ -140,11 +154,11 @@ export const UsersPage = () => {
         </Link>
       </Flex>
       <Switch>
-        <Match when={query.isPending}>
+        <Match when={query.isLoading}>
           <Spinner />
         </Match>
         <Match when={query.isError}>
-          <p>Error: {query.error?.message}</p>
+          <MyAlert title="Error" description={query.error?.message} />
         </Match>
         <Match when={query.isSuccess && query.data}>
           <MyTable data={query.data?.data ?? []} columns={columns} hiddenFooter />

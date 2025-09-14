@@ -46,15 +46,6 @@ export const AddUserPage = () => {
       <Heading as="h1" size="2xl" mb="5">
         Add User
       </Heading>
-      {/* <Show when={mutation.isError}>
-        <Alert.Root onClose={() => mutation.reset()}>
-          <Alert.Icon>
-            <OctagonAlertIcon />
-          </Alert.Icon>
-          <Alert.Title>Error</Alert.Title>
-          <Alert.Description>{mutation.error?.message}</Alert.Description>
-        </Alert.Root>
-      </Show> */}
       <styled.form
         onSubmit={(e) => {
           e.preventDefault();
