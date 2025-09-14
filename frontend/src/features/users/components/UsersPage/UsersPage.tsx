@@ -1,13 +1,16 @@
-import { useQuery } from '@tanstack/solid-query';
+import { useMutation, useQuery, useQueryClient } from '@tanstack/solid-query';
 import { Link } from '@tanstack/solid-router';
 import type { ColumnDef } from '@tanstack/solid-table';
 import { MyTable } from 'components/MyTable/MyTable';
 import { Button } from 'components/ui/button';
 import { Heading } from 'components/ui/heading';
+import { IconButton } from 'components/ui/icon-button';
 import { PageContainer } from 'components/ui/page-container';
 import { Spinner } from 'components/ui/spinner';
-import { CheckIcon } from 'lucide-solid';
+import { CheckIcon, TrashIcon } from 'lucide-solid';
 import { Match, Show, Switch } from 'solid-js';
+import { useConfirmDialog } from 'src/hooks/useConfirmDialog';
+import { useToast } from 'src/hooks/useToast';
 import { apiService } from 'src/services/api/api';
 import type { components } from 'src/services/api/types';
 import { Flex } from 'styled-system/jsx';
@@ -18,6 +21,42 @@ export const UsersPage = () => {
     queryFn: async () => {
       const res = await apiService.GET('/api/v1/users/');
       return res.data;
+    },
+  }));
+  const { confirmDialog } = useConfirmDialog();
+  const { errorToast, successToast } = useToast();
+  const queryClient = useQueryClient();
+
+  const deleteUser = useMutation(() => ({
+    mutationFn: async (userId: string) => {
+      await apiService.DELETE('/api/v1/users/{user_id}', {
+        params: {
+          path: {
+            user_id: userId,
+          },
+        },
+      });
+    },
+    onMutate: async (userId) => {
+      await queryClient.cancelQueries({ queryKey: ['users'] });
+
+      const previousUsers = queryClient.getQueryData(['users']);
+
+      queryClient.setQueryData(['users'], (old: components['schemas']['UsersPublic']) =>
+        old?.data.filter((user) => user.id !== userId),
+      );
+
+      return { previousUsers };
+    },
+    onSuccess: () => {
+      successToast({ title: 'User deleted successfully' });
+    },
+    onError: (error, _userId, context) => {
+      queryClient.setQueryData(['todos'], context?.previousUsers);
+      errorToast({ title: error.message ?? 'Failed to delete user' });
+    },
+    onSettled: () => {
+      queryClient.invalidateQueries({ queryKey: ['users'] });
     },
   }));
 
@@ -61,6 +100,29 @@ export const UsersPage = () => {
               <CheckIcon color="green" />
             </Flex>
           </Show>
+        );
+      },
+      size: 50,
+    },
+    {
+      header: '_',
+      cell: (info) => {
+        return (
+          <IconButton
+            variant="ghost"
+            onClick={() => {
+              confirmDialog({
+                title: 'Delete User',
+                description: 'Are you sure you want to delete this user?',
+                onConfirm: () => {
+                  deleteUser.mutate(info.row.original.id);
+                },
+              });
+            }}
+            color="red.10"
+          >
+            <TrashIcon />
+          </IconButton>
         );
       },
       size: 50,

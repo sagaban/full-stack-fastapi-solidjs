@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/solid-query';
 import { SolidQueryDevtools } from '@tanstack/solid-query-devtools';
 import { RouterProvider } from '@tanstack/solid-router';
+import { AppConfirmDialog } from 'components/AppConfirmDialog/AppConfirmDialog';
 import { AppToaster } from 'components/AppToaster/AppToaster';
 
 import { AuthProvider, useAuth } from './contexts/AuthContext';
@@ -21,6 +22,7 @@ export default function App() {
           <SolidQueryDevtools initialIsOpen={false} />
           <InnerApp />
           <AppToaster />
+          <AppConfirmDialog />
         </QueryClientProvider>
       </ThemeProvider>
     </AuthProvider>

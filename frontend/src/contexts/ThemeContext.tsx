@@ -10,6 +10,7 @@ interface ThemeContextType {
 
 const ThemeContext = createContext<ThemeContextType>();
 
+// TODO: Can this just be implemented changing the documentElement class?
 export function ThemeProvider(props: { children: JSXElement }) {
   // Get initial theme from localStorage or default to 'dark'
   const getInitialTheme = (): Theme => {

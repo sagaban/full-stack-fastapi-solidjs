@@ -38,8 +38,7 @@ export const AddUserPage = () => {
       is_superuser: false,
     } satisfies components['schemas']['UserCreate'],
     onSubmit: async ({ value }) => {
-      const response = await mutation.mutateAsync(value);
-      console.log(response);
+      await mutation.mutateAsync(value);
     },
   }));
   return (

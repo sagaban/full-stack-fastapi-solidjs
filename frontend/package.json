@@ -36,6 +36,7 @@
     "@tanstack/solid-query-devtools": "^5.87.4",
     "@tanstack/solid-router": "^1.131.28",
     "@tanstack/solid-router-devtools": "^1.131.28",
+    "@tanstack/solid-store": "^0.7.5",
     "@tanstack/solid-table": "^8.21.3",
     "es-toolkit": "^1.39.10",
     "lucide-solid": "^0.542.0",

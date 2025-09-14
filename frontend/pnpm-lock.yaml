@@ -26,6 +26,9 @@ importers:
       '@tanstack/solid-router-devtools':
         specifier: ^1.131.28
         version: 1.131.28(@tanstack/router-core@1.131.30)(@tanstack/solid-router@1.131.28(solid-js@1.9.9))(csstype@3.1.3)(solid-js@1.9.9)(tiny-invariant@1.3.3)
+      '@tanstack/solid-store':
+        specifier: ^0.7.5
+        version: 0.7.5(solid-js@1.9.9)
       '@tanstack/solid-table':
         specifier: ^8.21.3
         version: 8.21.3(solid-js@1.9.9)
@@ -912,8 +915,8 @@ packages:
     peerDependencies:
       solid-js: ^1.6.0
 
-  '@tanstack/solid-store@0.7.4':
-    resolution: {integrity: sha512-PoR8zUf48L9ACFSwlem6x28251cWyxGAUKu9VlsObnjaKRwWvgbT2XOU9FIprOPxmWtZc8gF1zThg5O0xQnAEw==}
+  '@tanstack/solid-store@0.7.5':
+    resolution: {integrity: sha512-w9c9xsSBJiFYhz1CaOGUEY2eJQg4vgshy0pRpULgrAKl+6TAPblYtk2wHmOJb6jcCxOiIRwO3BGRYot3oH2teg==}
     peerDependencies:
       solid-js: ^1.6.0
 
@@ -928,6 +931,9 @@ packages:
 
   '@tanstack/store@0.7.4':
     resolution: {integrity: sha512-F1XqZQici1Aq6WigEfcxJSml92nW+85Om8ElBMokPNg5glCYVOmPkZGIQeieYFxcPiKTfwo0MTOQpUyJtwncrg==}
+
+  '@tanstack/store@0.7.5':
+    resolution: {integrity: sha512-qd/OjkjaFRKqKU4Yjipaen/EOB9MyEg6Wr9fW103RBPACf1ZcKhbhcu2S5mj5IgdPib6xFIgCUti/mKVkl+fRw==}
 
   '@tanstack/table-core@8.21.3':
     resolution: {integrity: sha512-ldZXEhOBb8Is7xLs01fR3YEc3DERiz5silj8tnGkFZytt1abEvl/GhUmCE0PMLaMPTa3Jk4HbKmRlHmu+gCftg==}
@@ -3868,7 +3874,7 @@ snapshots:
   '@tanstack/solid-form@1.19.3(solid-js@1.9.9)':
     dependencies:
       '@tanstack/form-core': 1.19.3
-      '@tanstack/solid-store': 0.7.4(solid-js@1.9.9)
+      '@tanstack/solid-store': 0.7.5(solid-js@1.9.9)
       solid-js: 1.9.9
 
   '@tanstack/solid-query-devtools@5.87.4(@tanstack/solid-query@5.87.4(solid-js@1.9.9))(solid-js@1.9.9)':
@@ -3910,9 +3916,9 @@ snapshots:
       '@tanstack/store': 0.7.0
       solid-js: 1.9.9
 
-  '@tanstack/solid-store@0.7.4(solid-js@1.9.9)':
+  '@tanstack/solid-store@0.7.5(solid-js@1.9.9)':
     dependencies:
-      '@tanstack/store': 0.7.4
+      '@tanstack/store': 0.7.5
       solid-js: 1.9.9
 
   '@tanstack/solid-table@8.21.3(solid-js@1.9.9)':
@@ -3923,6 +3929,8 @@ snapshots:
   '@tanstack/store@0.7.0': {}
 
   '@tanstack/store@0.7.4': {}
+
+  '@tanstack/store@0.7.5': {}
 
   '@tanstack/table-core@8.21.3': {}
 
