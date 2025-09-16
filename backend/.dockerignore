@@ -152,5 +152,5 @@ docs/
 *.md
 README*
 
-# Scripts (not needed in production)
-scripts/
+# Scripts are needed for production prestart service
+# scripts/
